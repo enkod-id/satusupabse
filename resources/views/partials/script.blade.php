@@ -5,3 +5,7 @@
 <script defer src="{{asset('assets/js/alpine.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script defer src="{{asset('assets/js/apexcharts.js')}}"></script>
+<script defer src="{{asset('assets/js/quill.js')}}"></script>
+<script defer src="{{asset('assets/js/simple-datatables.js')}}"></script>
+<script defer src="{{asset('assets/js/highlight.min.js')}}"></script>
+

@@ -9,8 +9,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" media="screen" href="{{asset('')}}assets/css/perfect-scrollbar.min.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="{{asset('')}}assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/perfect-scrollbar.min.css')}}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/style.css')}}" />
         <link defer rel="stylesheet" type="text/css" media="screen" href="{{asset('/assets/css/animate.css')}}" />
         <script src="{{asset('assets/js/perfect-scrollbar.min.js')}}"></script>
         <script defer src="{{asset('assets/js/popper.min.js')}}"></script>
@@ -47,7 +47,7 @@
 
                 <div class="animate__animated p-6" :class="[$store.app.animation]">
                     <!-- start main content section -->
-                    @include('partials.main_content')
+                    @yield('content')
                     <!-- end main content section -->
                 </div>
 
@@ -59,74 +59,6 @@
 
         @include('partials.script')
 
-        <script>
-            document.addEventListener('alpine:init', () => {
-                // main section
-                Alpine.data('scrollToTop', () => ({
-                    showTopButton: false,
-                    init() {
-                        window.onscroll = () => {
-                            this.scrollFunction();
-                        };
-                    },
-
-                    scrollFunction() {
-                        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                            this.showTopButton = true;
-                        } else {
-                            this.showTopButton = false;
-                        }
-                    },
-
-                    goToTop() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    },
-                }));
-
-                // theme customization
-                Alpine.data('customizer', () => ({
-                    showCustomizer: false,
-                }));
-
-                // sidebar section
-                Alpine.data('sidebar', () => ({
-                    init() {
-                        const selector = document.querySelector('.sidebar ul a[href="' + window.location.pathname + '"]');
-                        if (selector) {
-                            selector.classList.add('active');
-                            const ul = selector.closest('ul.sub-menu');
-                            if (ul) {
-                                let ele = ul.closest('li.menu').querySelectorAll('.nav-link');
-                                if (ele) {
-                                    ele = ele[0];
-                                    setTimeout(() => {
-                                        ele.click();
-                                    });
-                                }
-                            }
-                        }
-                    },
-                }));
-
-                // header section
-               
-
-                // content section
-                
-
-                // revenue
-                   
-                // sales by category
-                    
-
-                // daily sales
-                    
-
-                // total orders
-                    
-                }));
-            });
-        </script>
+        @include('partials.script_footer')
     </body>
 </html>
