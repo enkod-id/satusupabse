@@ -188,7 +188,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('role.index')}}" class="group">
+                                <a href="{{route('roles.index')}}" class="group">
                                     <div class="flex items-center">
                                         <svg
                                             class="shrink-0 group-hover:!text-primary"

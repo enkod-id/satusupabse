@@ -27,9 +27,9 @@ Route::middleware(['auth', 'verified', 'logged'])->group(function() {
     Route::get('/dashboard', function () { return view('dashboard'); 
     })->name('dashboard');
 
-    Route::get('/admins/role', [RoleController::class, 'index'])->name('role.index');
-    Route::post('/admins/role', [RoleController::class, 'store'])->name('role.store');
-    Route::delete('/admins/role', [RoleController::class, 'destroy'])->name('role.destroy');
+    Route::get('/admins/role', [RoleController::class, 'index'])->name('roles.index');
+    Route::post('/admins/role', [RoleController::class, 'store'])->name('roles.store');
+    Route::delete('/admins/role', [RoleController::class, 'destroy'])->name('roles.destroy');
 });
 
 
